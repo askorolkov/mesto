@@ -6,7 +6,7 @@
   height: 32px;
   top: -40px;
   right: -40px;
-  background-image: url(/images/Closeicon.svg);
+  background-image: url(../../../images/Closeicon.svg);
   background-position: center;
   cursor: pointer;
 }

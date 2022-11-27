@@ -1,7 +1,7 @@
 .photo__like {
   width: 22px;
   height: 19px;
-  background-image: url(/images/like.svg);
+  background-image: url(../../../images/like.svg);
   background-color: transparent;
   border: 0;
   cursor: pointer;
@@ -9,7 +9,7 @@
 }
 
 .photo__like_active {
-  background-image: url(/images/likeactive.svg);
+  background-image: url(../../../images/likeactive.svg);
 }
 
 .photo__like:hover {
