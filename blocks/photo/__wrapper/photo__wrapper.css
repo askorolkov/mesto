@@ -1,0 +1,23 @@
+.photo__wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 282px;
+  height: 362px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 890px){
+  .photo__wrapper {
+    max-width: 240px;
+    height: 320px;  
+  }  
+}
+
+@media screen and (max-width: 750px){
+  .photo__wrapper {
+    max-width: 282px;
+    height: 362px;
+  }  
+}

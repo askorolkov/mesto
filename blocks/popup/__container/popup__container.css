@@ -1,0 +1,18 @@
+.popup__container {
+  min-width: 430px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 195px;
+  left: calc(50% - 430px/2);
+  border-radius: 10px;
+  z-index: 2;
+}
+
+@media screen and (max-width: 550px) {
+  .popup__container {
+    left: calc(50% - 288px/2);
+    min-width: 288px;
+  }
+}

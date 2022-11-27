@@ -1,0 +1,11 @@
+.header {
+  max-width: 100%;
+  border-bottom: 1px solid white;
+  margin: 45px auto 40px;
+}
+
+@media screen and (max-width: 790px) {
+  .header {
+    margin: 28px auto 42px;
+  }
+}
