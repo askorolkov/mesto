@@ -8,16 +8,16 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 890px){
+@media screen and (max-width: 890px) {
   .photo__wrapper {
     max-width: 240px;
-    height: 320px;  
-  }  
+    height: 320px;
+  }
 }
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 750px) {
   .photo__wrapper {
     max-width: 282px;
     height: 362px;
-  }  
+  }
 }

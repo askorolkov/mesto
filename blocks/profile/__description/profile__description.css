@@ -9,13 +9,13 @@
 }
 
 @media screen and (max-width: 790px) {
-  .profile__description {    
-    text-align: center;  
+  .profile__description {
+    text-align: center;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .profile__description {    
+  .profile__description {
     font-size: 16px;
     line-height: 20px;
   }
@@ -25,6 +25,6 @@
   .profile__description {
     font-weight: 400;
     font-size: 14px;
-    line-height: 17px;    
+    line-height: 17px;
   }
 }
