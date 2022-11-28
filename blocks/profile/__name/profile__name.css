@@ -5,13 +5,23 @@
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 500px;
+}
+
+@media screen and (max-width: 850px) {
+  .profile__name {
+    max-width: 400px;
+  }
 }
 
 @media screen and (max-width: 500px) {
   .profile__name {
-    font-weight: 500;
     font-size: 27px;
     line-height: 33px;
     margin-bottom: 14px;
+    max-width: 230px;
   }
 }

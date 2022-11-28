@@ -8,25 +8,6 @@
   </head>
   <body class="page">
     <div class="page__container">
-      <div class="popup">
-        <form method="get" class="popup__container">
-          <h2 class="popup__header">Редактировать профиль</h2>
-          <input
-            class="popup__input"
-            type="text"
-            id="formName"
-            placeholder="Жак-Ив Кусто"
-          />
-          <input
-            class="popup__input"
-            type="text"
-            id="formJob"
-            placeholder="Исследователь океана"
-          />
-          <input type="submit" value="Сохранить" class="popup__save" />
-          <button type="button" class="popup__close"></button>
-        </form>
-      </div>
       <header class="header">
         <img
           src="./images/mesto-logo.svg"
@@ -39,89 +20,72 @@
           <div class="profile__avatar"></div>
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button type="button" class="profile__edit-button"></button>
+            <button aria-label="Редактировать профиль" type="button" class="profile__edit-button"></button>
             <p class="profile__description">Исследователь океана</p>
           </div>
-
-          <button class="profile__add-button"></button>
+          <button aria-label="Добавить место" type="button" class="profile__add-button"></button>
         </section>
         <section class="photo">
           <div class="photo__wrapper">
-            <div class="photo__container">
-              <img
-                src="./images/kirill-pershin-1088404-unsplash.png"
-                alt="Карачаевск"
-                class="photo__element"
-              />
-            </div>
+            <img
+              src="./images/kirill-pershin-1088404-unsplash.png"
+              alt="Карачаевск"
+              class="photo__element"
+            />
             <div class="photo__description">
-              <p class="photo__location">Карачаевск</p>
-              <button class="photo__like"></button>
+              <h3 class="photo__location">Карачаевск</h3>
+              <button aria-label="Поставить лайк" type="button" class="photo__like"></button>
             </div>
           </div>
           <div class="photo__wrapper">
-            <div class="photo__container">
-              <img
-                src="./images/kirill-pershin-140461181-unsplash.png"
-                alt="Гора Эльбрус"
-                class="photo__element"
-              />
-            </div>
+            <img
+              src="./images/kirill-pershin-140461181-unsplash.png"
+              alt="Гора Эльбрус"
+              class="photo__element"
+            />
             <div class="photo__description">
-              <p class="photo__location">Эльбрус</p>
-              <button class="photo__like"></button>
+              <h3 class="photo__location">Эльбрус</h3>
+              <button type="button" class="photo__like"></button>
             </div>
           </div>
           <div class="photo__wrapper">
-            <div class="photo__container">
-              <img
-                src="./images/kirill-pershin-1556355-unsplash.png"
-                alt="Домбай"
-                class="photo__element"
-              />
-            </div>
+            <img
+              src="./images/kirill-pershin-1556355-unsplash.png"
+              alt="Домбай"
+              class="photo__element"
+            />
             <div class="photo__description">
-              <p class="photo__location">Домбай</p>
-              <button class="photo__like"></button>
+              <h3 class="photo__location">Домбай</h3>
+              <button type="button" class="photo__like"></button>
             </div>
           </div>
           <div class="photo__wrapper">
-            <div class="photo__container">
-              <img
-                src="./images/altai.jpg"
-                alt="Алтай"
-                class="photo__element"
-              />
-            </div>
+            <img src="./images/altai.jpg" alt="Алтай" class="photo__element" />
             <div class="photo__description">
-              <p class="photo__location">Алтай</p>
-              <button class="photo__like"></button>
+              <h3 class="photo__location">Алтай</h3>
+              <button type="button" class="photo__like"></button>
             </div>
           </div>
           <div class="photo__wrapper">
-            <div class="photo__container">
-              <img
-                src="./images/tyumen.jpeg"
-                alt="Набережная Тюмени"
-                class="photo__element"
-              />
-            </div>
+            <img
+              src="./images/tyumen.jpeg"
+              alt="Набережная Тюмени"
+              class="photo__element"
+            />
             <div class="photo__description">
-              <p class="photo__location">Тюмень</p>
-              <button class="photo__like"></button>
+              <h3 class="photo__location">Тюмень</h3>
+              <button type="button" class="photo__like"></button>
             </div>
           </div>
           <div class="photo__wrapper">
-            <div class="photo__container">
-              <img
-                src="./images/tobolskiy-kreml.jpg"
-                alt="Тобольский кремль"
-                class="photo__element"
-              />
-            </div>
+            <img
+              src="./images/tobolskiy-kreml.jpg"
+              alt="Тобольский кремль"
+              class="photo__element"
+            />
             <div class="photo__description">
-              <p class="photo__location">Тобольск</p>
-              <button class="photo__like"></button>
+              <h3 class="photo__location">Тобольск</h3>
+              <button type="button" type="button" class="photo__like"></button>
             </div>
           </div>
         </section>
@@ -129,6 +93,31 @@
       <footer class="footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
       </footer>
+      <div class="popup">
+        <div class="popup__container">
+          <form method="get" class="popup__form">
+            <h2 class="popup__header">Редактировать профиль</h2>
+            <input
+              class="popup__input"
+              type="text"
+              id="formName"
+              placeholder="Ваше имя"
+              required
+            />
+            <input
+              class="popup__input"
+              type="text"
+              id="formJob"
+              placeholder="Ваша профессия"
+              required
+            />
+            <button
+              type="submit"
+              class="popup__save">Сохранить</button>
+            <button type="button" class="popup__close"></button>
+          </form>
+        </div>
+      </div>
     </div>
     <script src="./pages/index.js"></script>
   </body>
