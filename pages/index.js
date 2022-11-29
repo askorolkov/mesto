@@ -9,10 +9,9 @@ let profileJob = document.querySelector('.profile__description');
 
 function openPopup() {
   popup.classList.add('popup_open');
-  //обнуляем введенные в поля значения при каждом новом
-  //открытии попапа
-  nameInputField.value = '';
-  jobInputField.value ='';
+  // Подставляем данные в форму из профиля
+  nameInputField.value = profileName.textContent;
+  jobInputField.value = profileJob.textContent;
 }
 
 function closePopup() {
