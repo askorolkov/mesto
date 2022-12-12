@@ -1,4 +1,4 @@
-.photo__delete {
+.photos__delete {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -11,6 +11,6 @@
   border: 0;
 }
 
-.photo__delete:hover {
+.photos__delete:hover {
   opacity: .6;
 }

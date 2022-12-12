@@ -1,12 +1,12 @@
 //кнопки
 const profileEditButton = document.querySelector('.profile__edit-button');
 const buttonsClosePopup = document.querySelectorAll('.popup__close');
-const photoCloseButton = document.querySelector('.photo__popup-close');
+const photoCloseButton = document.querySelector('.photos__popup-close');
 const buttonAddPlace = document.querySelector('.profile__add-button');
 //попапы
 const profileEditPopup = document.querySelector('#editProfile');
 const placeAddPopup = document.querySelector('#addPlace');
-const photoPopup = document.querySelector('.photo__popup');
+const photoPopup = document.querySelector('.photos__popup');
 //шаблоны
 const placeTemplate = document.querySelector('#place').content;
 //поля ввода
@@ -18,22 +18,22 @@ const jobInputField = document.querySelector('#formJob');
 const profileForm = document.querySelector('#profileForm');
 const placeForm = document.querySelector('#placeForm');
 //остальные элементы
-const photoList = document.querySelector('.photo');
-const photoFullscreen = document.querySelector('.photo__fullscreen-image');
-const photoText = document.querySelector('.photo__text');
+const photoList = document.querySelector('.photos');
+const photoFullscreen = document.querySelector('.photos__fullscreen-image');
+const photoText = document.querySelector('.photos__text');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__description');
 
 //Функция для формирования карточек из шаблона
 function createCard(photoLink,locationName) {
-  const placeCard = placeTemplate.querySelector('.photo__wrapper').cloneNode(true);
-  const photoElement = placeCard.querySelector('.photo__element');
+  const placeCard = placeTemplate.querySelector('.photos__wrapper').cloneNode(true);
+  const photoElement = placeCard.querySelector('.photos__element');
   photoElement.src = photoLink;
   photoElement.alt = locationName;
-  placeCard.querySelector('.photo__location').textContent = locationName;
+  placeCard.querySelector('.photos__location').textContent = locationName;
   photoElement.addEventListener('click', ()=>openPopup(photoPopup));
-  placeCard.querySelector('.photo__like').addEventListener('click', (evt)=>evt.target.classList.toggle('photo__like_active'));
-  placeCard.querySelector('.photo__delete').addEventListener('click', ()=>placeCard.remove());
+  placeCard.querySelector('.photos__like').addEventListener('click', (evt)=>evt.target.classList.toggle('photos__like_active'));
+  placeCard.querySelector('.photos__delete').addEventListener('click', ()=>placeCard.remove());
   return placeCard
 }
 
@@ -85,7 +85,6 @@ profileEditButton.addEventListener('click',()=> {
   nameInputField.value = profileName.textContent;
   jobInputField.value = profileJob.textContent;
 });
-
 
 buttonAddPlace.addEventListener('click', ()=>openPopup(placeAddPopup));
 photoCloseButton.addEventListener('click',()=>closePopup(photoPopup));
