@@ -25,77 +25,14 @@
           </div>
           <button aria-label="Добавить место" type="button" class="profile__add-button"></button>
         </section>
-        <section class="photo">
-          <div class="photo__wrapper">
-            <img
-              src="./images/kirill-pershin-1088404-unsplash.png"
-              alt="Карачаевск"
-              class="photo__element"
-            />
-            <div class="photo__description">
-              <h2 class="photo__location">Карачаевск</h2>
-              <button aria-label="Поставить лайк" type="button" class="photo__like"></button>
-            </div>
-          </div>
-          <div class="photo__wrapper">
-            <img
-              src="./images/kirill-pershin-140461181-unsplash.png"
-              alt="Гора Эльбрус"
-              class="photo__element"
-            />
-            <div class="photo__description">
-              <h2 class="photo__location">Эльбрус</h2>
-              <button aria-label="Поставить лайк" type="button" class="photo__like"></button>
-            </div>
-          </div>
-          <div class="photo__wrapper">
-            <img
-              src="./images/kirill-pershin-1556355-unsplash.png"
-              alt="Домбай"
-              class="photo__element"
-            />
-            <div class="photo__description">
-              <h2 class="photo__location">Домбай</h2>
-              <button aria-label="Поставить лайк" type="button" class="photo__like"></button>
-            </div>
-          </div>
-          <div class="photo__wrapper">
-            <img src="./images/altai.jpg" alt="Алтай" class="photo__element" />
-            <div class="photo__description">
-              <h2 class="photo__location">Алтай</h2>
-              <button aria-label="Поставить лайк" type="button" class="photo__like"></button>
-            </div>
-          </div>
-          <div class="photo__wrapper">
-            <img
-              src="./images/tyumen.jpeg"
-              alt="Набережная Тюмени"
-              class="photo__element"
-            />
-            <div class="photo__description">
-              <h2 class="photo__location">Тюмень</h2>
-              <button aria-label="Поставить лайк" type="button" class="photo__like"></button>
-            </div>
-          </div>
-          <div class="photo__wrapper">
-            <img
-              src="./images/tobolskiy-kreml.jpg"
-              alt="Тобольский кремль"
-              class="photo__element"
-            />
-            <div class="photo__description">
-              <h2 class="photo__location">Тобольск</h2>
-              <button aria-label="Поставить лайк" type="button" class="photo__like"></button>
-            </div>
-          </div>
-        </section>
+        <section class="photo"></section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
       </footer>
-      <div class="popup">
+      <div class="popup" id="editProfile">
         <div class="popup__container">
-          <form method="get" class="popup__form">
+          <form method="get" class="popup__form" id="profileForm">
             <h2 class="popup__header">Редактировать профиль</h2>
             <input
               class="popup__input"
@@ -118,6 +55,48 @@
           <button type="button" class="popup__close"></button>
         </div>
       </div>
+      <div class="popup" id="addPlace">
+        <div class="popup__container">
+          <form method="get" class="popup__form" id="placeForm">
+            <h2 class="popup__header">Новое место</h2>
+            <input
+              class="popup__input"
+              type="text"
+              id="placeName"
+              placeholder="Название"
+              required
+            />
+            <input
+              class="popup__input"
+              type="text"
+              id="placeLink"
+              placeholder="Ссылка на картинку"
+              required
+            />
+            <button
+              type="submit"
+              class="popup__save">Создать</button>
+          </form>
+          <button type="button" class="popup__close"></button>
+        </div>
+      </div>
+      <div class="photo__popup">
+          <figure class="photo__fullscreen">
+            <img class="photo__fullscreen-image" src="">
+            <figcaption class="photo__text"></figcaption>
+            <button type="button" class="popup__close"></button>
+          </figure>
+      </div>
+      <template id="place">
+        <div class="photo__wrapper">
+          <img class="photo__element">
+          <button type="button" class="photo__delete"></button>
+          <div class="photo__description">
+            <h2 class="photo__location"></h2>
+            <button aria-label="Поставить лайк" type="button" class="photo__like"></button>
+          </div>
+        </div>
+      </template>
     </div>
     <script src="./pages/index.js"></script>
   </body>
