@@ -14,6 +14,7 @@
 @import url(../blocks/photo/photo.css);
 @import url(../blocks/photo/__text/photo__text.css);
 @import url(../blocks/photo/__popup/photo__popup.css);
+@import url(../blocks/photo/__popup-close/photo__popup-close.css);
 @import url(../blocks/photo/__fullscreen/photo__fullscreen.css);
 @import url(../blocks/photo/__fullscreen-image/photo__fullscreen-image.css);
 @import url(../blocks/photo/__wrapper/photo__wrapper.css);

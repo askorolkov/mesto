@@ -1,6 +1,7 @@
 //кнопки
 const profileEditButton = document.querySelector('.profile__edit-button');
 const closeButton = document.querySelectorAll('.popup__close');
+const photoCloseButton = document.querySelector('.photo__popup-close');
 const addPlaceButton = document.querySelector('.profile__add-button');
 //попапы
 const profileEditPopup = document.querySelector('#editProfile');
@@ -89,6 +90,7 @@ function openPhotoFullscreen(evt) {
   photoPopup.classList.add('popup_open');
 }
 
+
 //Цикл для добавления слушателей событий на кнопки закрытия форм
 closeButton.forEach((button)=> button.addEventListener('click', closePopup));
 
@@ -126,6 +128,6 @@ function handleFormSubmit (evt) {
 
 profileEditButton.addEventListener('click', openEditPopup);
 addPlaceButton.addEventListener('click', openPlacePopup);
-
+photoCloseButton.addEventListener('click',closePopup);
 //циклом добавляем обработчики событий на обе формы
 formElement.forEach((item)=> item.addEventListener('submit', handleFormSubmit));
