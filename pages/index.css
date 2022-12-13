@@ -13,8 +13,6 @@
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 @import url(../blocks/photos/photos.css);
 @import url(../blocks/fullscreen/__text/fullscreen__text.css);
-/* @import url(../blocks/photos/__popup/photos__popup.css);
-@import url(../blocks/photos/__popup-close/photos__popup-close.css); */
 @import url(../blocks/fullscreen/fullscreen.css);
 @import url(../blocks/fullscreen/__image/fullscreen__image.css);
 @import url(../blocks/card/card.css);
