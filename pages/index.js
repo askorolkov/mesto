@@ -1,7 +1,6 @@
 //кнопки
 const profileEditButton = document.querySelector('.profile__edit-button');
 const buttonsClosePopup = document.querySelectorAll('.popup__close');
-const photoCloseButton = document.querySelector('.photos__popup-close');
 const buttonAddPlace = document.querySelector('.profile__add-button');
 //попапы
 const profileEditPopup = document.querySelector('#editProfile');
@@ -19,8 +18,8 @@ const profileForm = document.querySelector('#profileForm');
 const placeForm = document.querySelector('#placeForm');
 //остальные элементы
 const photoList = document.querySelector('.photos');
-const photoFullscreen = document.querySelector('.photos__fullscreen-image');
-const photoText = document.querySelector('.photos__text');
+const photoFullscreen = document.querySelector('.fullscreen__image');
+const photoText = document.querySelector('.fullscreen__text');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__description');
 
@@ -93,7 +92,6 @@ profileEditButton.addEventListener('click',()=> {
 });
 
 buttonAddPlace.addEventListener('click', ()=>openPopup(placeAddPopup));
-photoCloseButton.addEventListener('click',()=>closePopup(photoPopup));
 
 //добавляем обработчики событий на сабмиты форм редактирования профиля и добавления карточек
 profileForm.addEventListener('submit',(evt)=> handleProfileFormSubmit(evt,profileEditPopup));
