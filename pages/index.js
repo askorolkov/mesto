@@ -6,7 +6,7 @@ const buttonAddPlace = document.querySelector('.profile__add-button');
 //попапы
 const profileEditPopup = document.querySelector('#editProfile');
 const placeAddPopup = document.querySelector('#addPlace');
-const photoPopup = document.querySelector('.photos__popup');
+const photoPopup = document.querySelector('.popup_photo');
 //шаблоны
 const placeTemplate = document.querySelector('#place').content;
 //поля ввода
@@ -26,14 +26,20 @@ const profileJob = document.querySelector('.profile__description');
 
 //Функция для формирования карточек из шаблона
 function createCard(photoLink,locationName) {
-  const placeCard = placeTemplate.querySelector('.photos__wrapper').cloneNode(true);
-  const photoElement = placeCard.querySelector('.photos__element');
+  const placeCard = placeTemplate.querySelector('.card').cloneNode(true);
+  const photoElement = placeCard.querySelector('.card__photo');
   photoElement.src = photoLink;
   photoElement.alt = locationName;
-  placeCard.querySelector('.photos__location').textContent = locationName;
-  photoElement.addEventListener('click', ()=>openPopup(photoPopup));
-  placeCard.querySelector('.photos__like').addEventListener('click', (evt)=>evt.target.classList.toggle('photos__like_active'));
-  placeCard.querySelector('.photos__delete').addEventListener('click', ()=>placeCard.remove());
+  placeCard.querySelector('.card__location').textContent = locationName;
+  //открытие фотографии в полный размер
+  photoElement.addEventListener('click', ()=> openPopup(photoPopup));
+  photoElement.addEventListener('click', ()=> {
+    photoFullscreen.src = photoLink;
+    photoText.textContent = locationName;
+  });
+  //обработка лайков и удаление карточек
+  placeCard.querySelector('.card__like').addEventListener('click', (evt)=>evt.target.classList.toggle('card__like_active'));
+  placeCard.querySelector('.card__delete').addEventListener('click', ()=>placeCard.remove());
   return placeCard
 }
 
@@ -63,14 +69,14 @@ buttonsClosePopup.forEach((button)=>{
 });
 
 //Функции отправки формы
-function handleProfileFormSubmit (evt,popup) {
+function handleProfileFormSubmit(evt,popup) {
   evt.preventDefault();
   profileName.textContent = nameInputField.value;
   profileJob.textContent = jobInputField.value;
   closePopup(popup);
 };
 
-function handlePlaceFormSubmit (evt,popup) {
+function handlePlaceFormSubmit(evt,popup) {
   evt.preventDefault();
   renderCard(placeInputLink.value, placeInputName.value);
   closePopup(popup);

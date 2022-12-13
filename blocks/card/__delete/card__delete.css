@@ -1,4 +1,4 @@
-.photos__delete {
+.card__delete {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -11,6 +11,6 @@
   border: 0;
 }
 
-.photos__delete:hover {
+.card__delete:hover {
   opacity: .6;
 }

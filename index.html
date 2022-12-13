@@ -25,15 +25,7 @@
           </div>
           <button aria-label="Добавить место" type="button" class="profile__add-button"></button>
         </section>
-        <section class="photos">
-          <div class="photos__popup">
-            <div class="photos__fullscreen">
-              <img class="photos__fullscreen-image">
-              <p class="photos__text"></p>
-              <button type="button" class="photos__popup-close"></button>
-            </div>
-          </div>
-        </section>
+        <section class="photos"></section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
@@ -88,13 +80,20 @@
           <button type="button" class="popup__close"></button>
         </div>
       </div>
+      <div class="popup popup_photo">
+        <div class="photos__fullscreen">
+          <img class="photos__fullscreen-image">
+          <p class="photos__text"></p>
+          <button type="button" class="photos__popup-close"></button>
+        </div>
+      </div>
       <template id="place">
-        <div class="photos__wrapper">
-          <img class="photos__element">
-          <button type="button" class="photos__delete"></button>
-          <div class="photos__description">
-            <h2 class="photos__location"></h2>
-            <button aria-label="Поставить лайк" type="button" class="photos__like"></button>
+        <div class="card">
+          <img class="card__photo">
+          <button type="button" class="card__delete"></button>
+          <div class="card__description">
+            <h2 class="card__location"></h2>
+            <button aria-label="Поставить лайк" type="button" class="card__like"></button>
           </div>
         </div>
       </template>
