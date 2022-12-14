@@ -31,15 +31,22 @@ function createCard(photoLink,locationName) {
   photoElement.alt = locationName;
   placeCard.querySelector('.card__location').textContent = locationName;
   //открытие фотографии в полный размер
-  photoElement.addEventListener('click', ()=> openPopup(photoPopup));
   photoElement.addEventListener('click', ()=> {
     photoFullscreen.src = photoLink;
+    photoFullscreen.alt = locationName;
     photoText.textContent = locationName;
+    openPopup(photoPopup);
   });
-  //обработка лайков и удаление карточек
-  placeCard.querySelector('.card__like').addEventListener('click', (evt)=>evt.target.classList.toggle('card__like_active'));
-  placeCard.querySelector('.card__delete').addEventListener('click', ()=>placeCard.remove());
-  return placeCard
+
+//функция лайков
+function toggleLike(evt) {
+  evt.target.classList.toggle('card__like_active');
+}
+
+//обработка лайков и удаление карточек
+placeCard.querySelector('.card__like').addEventListener('click', toggleLike);
+placeCard.querySelector('.card__delete').addEventListener('click', ()=>placeCard.remove());
+return placeCard;
 }
 
 //функция для добавления карточек на страницу
@@ -68,17 +75,17 @@ buttonsClosePopup.forEach((button)=>{
 });
 
 //Функции отправки формы
-function handleProfileFormSubmit(evt,popup) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = nameInputField.value;
   profileJob.textContent = jobInputField.value;
-  closePopup(popup);
+  closePopup(profileEditPopup);
 };
 
-function handlePlaceFormSubmit(evt,popup) {
+function handlePlaceFormSubmit(evt) {
   evt.preventDefault();
   renderCard(placeInputLink.value, placeInputName.value);
-  closePopup(popup);
+  closePopup(placeAddPopup);
   placeForm.reset();
 };
 
@@ -94,5 +101,5 @@ profileEditButton.addEventListener('click',()=> {
 buttonAddPlace.addEventListener('click', ()=>openPopup(placeAddPopup));
 
 //добавляем обработчики событий на сабмиты форм редактирования профиля и добавления карточек
-profileForm.addEventListener('submit',(evt)=> handleProfileFormSubmit(evt,profileEditPopup));
-placeForm.addEventListener('submit',(evt)=> handlePlaceFormSubmit(evt,placeAddPopup));
+profileForm.addEventListener('submit',handleProfileFormSubmit);
+placeForm.addEventListener('submit',handlePlaceFormSubmit);
