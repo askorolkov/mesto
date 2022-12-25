@@ -3,6 +3,9 @@ const profileEditButton = document.querySelector('.profile__edit-button');
 const buttonsClosePopup = document.querySelectorAll('.popup__close');
 const buttonAddPlace = document.querySelector('.profile__add-button');
 //попапы
+const fullscreenContainer = document.querySelector('.fullscreen');
+const containerList = document.querySelectorAll('.popup__container');
+const popupList = document.querySelectorAll('.popup');
 const profileEditPopup = document.querySelector('#editProfile');
 const placeAddPopup = document.querySelector('#addPlace');
 const photoPopup = document.querySelector('.popup_photo');
@@ -61,18 +64,27 @@ initialCards.forEach((card)=> renderCard(card['link'],card['name']));
 //функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_open');
+  document.addEventListener('keydown', closePopupOnEscape);
 }
 
 //функция закрытия попапов
 function closePopup(popup) {
   popup.classList.remove('popup_open');
+  document.removeEventListener('keydown', closePopupOnEscape);
+}
+
+function closePopupOnEscape(evt) {
+  if (evt.key === 'Escape') {
+    const popupOpen = document.querySelector('.popup_open');
+    closePopup(popupOpen);
+  }
 }
 
 //Цикл для добавления слушателей событий на кнопки закрытия форм
 buttonsClosePopup.forEach((button)=>{
   const buttonParentPopup = button.closest('.popup');
   button.addEventListener('click', ()=>closePopup(buttonParentPopup));
-});
+})
 
 //Функции отправки формы
 function handleProfileFormSubmit(evt) {
@@ -80,14 +92,14 @@ function handleProfileFormSubmit(evt) {
   profileName.textContent = nameInputField.value;
   profileJob.textContent = jobInputField.value;
   closePopup(profileEditPopup);
-};
+}
 
 function handlePlaceFormSubmit(evt) {
   evt.preventDefault();
   renderCard(placeInputLink.value, placeInputName.value);
   closePopup(placeAddPopup);
   placeForm.reset();
-};
+}
 
 profileEditButton.addEventListener('click',()=>openPopup(profileEditPopup));
 
@@ -96,10 +108,21 @@ profileEditButton.addEventListener('click',()=>openPopup(profileEditPopup));
 profileEditButton.addEventListener('click',()=> {
   nameInputField.value = profileName.textContent;
   jobInputField.value = profileJob.textContent;
-});
+})
 
 buttonAddPlace.addEventListener('click', ()=>openPopup(placeAddPopup));
 
 //добавляем обработчики событий на сабмиты форм редактирования профиля и добавления карточек
 profileForm.addEventListener('submit',handleProfileFormSubmit);
 placeForm.addEventListener('submit',handlePlaceFormSubmit);
+
+//закрыте попапов по клику на темный фон
+popupList.forEach((popup) => {
+  popup.addEventListener('click', ()=>closePopup(popup));
+})
+
+containerList.forEach((container) => {
+  container.addEventListener('click', (evt) => evt.stopPropagation());
+})
+
+fullscreenContainer.addEventListener('click', (evt) => evt.stopPropagation());
