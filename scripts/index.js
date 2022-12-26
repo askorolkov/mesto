@@ -62,7 +62,9 @@ function renderCard(photoLink, locationName) {
 initialCards.forEach((card)=> renderCard(card['link'],card['name']));
 
 //функция открытия попапов
+const buttonSave = placeForm.querySelector('.popup__save');
 function openPopup(popup) {
+  disableSubmitButton(buttonSave, validationConfig);
   popup.classList.add('popup_open');
   document.addEventListener('keydown', closePopupOnEscape);
 }
@@ -79,12 +81,6 @@ function closePopupOnEscape(evt) {
     closePopup(popupOpen);
   }
 }
-
-//Цикл для добавления слушателей событий на кнопки закрытия форм
-buttonsClosePopup.forEach((button)=>{
-  const buttonParentPopup = button.closest('.popup');
-  button.addEventListener('click', ()=>closePopup(buttonParentPopup));
-})
 
 //Функции отправки формы
 function handleProfileFormSubmit(evt) {
@@ -110,19 +106,20 @@ profileEditButton.addEventListener('click',()=> {
   jobInputField.value = profileJob.textContent;
 })
 
-buttonAddPlace.addEventListener('click', ()=>openPopup(placeAddPopup));
+buttonAddPlace.addEventListener('click', ()=> {
+  openPopup(placeAddPopup);
+});
 
 //добавляем обработчики событий на сабмиты форм редактирования профиля и добавления карточек
 profileForm.addEventListener('submit',handleProfileFormSubmit);
 placeForm.addEventListener('submit',handlePlaceFormSubmit);
 
-//закрыте попапов по клику на темный фон
+//закрыте попапов по клику на темный фон и кнопку закрытия формы
 popupList.forEach((popup) => {
-  popup.addEventListener('click', ()=>closePopup(popup));
+  popup.addEventListener('mouseup', (evt)=> {
+    const targetClassList = evt.target.classList;
+    if (targetClassList.contains('popup') || targetClassList.contains('popup__close')) {
+      closePopup(popup);
+    }
+  })
 })
-
-containerList.forEach((container) => {
-  container.addEventListener('click', (evt) => evt.stopPropagation());
-})
-
-fullscreenContainer.addEventListener('click', (evt) => evt.stopPropagation());
